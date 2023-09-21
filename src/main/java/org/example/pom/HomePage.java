@@ -4,18 +4,20 @@ import lombok.SneakyThrows;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
+import org.springframework.stereotype.Component;
 
+@Component
 public class HomePage extends BasePage {
 
     @FindBy(how = How.CSS, using = "a[href='/checkboxes']")
     public WebElement checkboxes;
 
 
-    @SneakyThrows
-    public void openHomePage() {
-        webDriver.get("https://the-internet.herokuapp.com/");
-        Thread.sleep(1000);
-    }
+//    @SneakyThrows
+//    public void openHomePage() {
+//        webDriver.get("https://the-internet.herokuapp.com/");
+//        Thread.sleep(1000);
+//    }
 
     @SneakyThrows
     public void clickOnCheckBoxes() {

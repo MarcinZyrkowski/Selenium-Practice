@@ -1,22 +1,18 @@
 package org.example.pom;
 
-import org.example.conf.WebDriverManager;
+import jakarta.annotation.PostConstruct;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
-import org.testng.annotations.AfterTest;
+import org.springframework.beans.factory.annotation.Autowired;
 
 public class BasePage {
 
-    protected WebDriver webDriver =
-        WebDriverManager.getWebDriver();
+    @Autowired
+    protected WebDriver webDriver;
 
-    public BasePage() {
+    @PostConstruct
+    private void init() {
         PageFactory.initElements(webDriver, this);
-    }
-
-    @AfterTest
-    public void tearDown() {
-        WebDriverManager.closeWebDriver();
     }
 
 }
